@@ -1,0 +1,41 @@
+.header {
+    display: flex;
+    background: rgb(216, 127, 140);
+    height: 100px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logoName {
+    margin: auto 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.contact {
+    margin: auto 30px;
+}
+
+.header ul {
+    margin: auto;
+}
+
+.header ul li{
+    float: left;
+    padding: 10px;
+    
+}
+
+.main .sidebar {
+    float: left;
+}
+
+.sidebar {
+    width: 20%;
+}
+
+.catalog {
+    width: 80%;
+}
