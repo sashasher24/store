@@ -22,20 +22,68 @@ ul {
     margin: auto;
 }
 
-.header ul li{
+.header ul li {
     float: left;
     padding: 10px;
-    
 }
 
-.main .sidebar {
-    float: left;
+.main {
+    height: 500px;
+    display: flex;
 }
 
 .sidebar {
     width: 20%;
+    height: 400px;
+    margin: 20px;
+}
+
+.filter {
+    position: relative;
+    margin: 10px;
+}
+
+.filter::after {
+    content: '';
+    background: url(./assets/images/arrow-image.png);
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    background-size: cover;
+}
+
+.submenu {
+    display: none;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
 }
 
 .catalog {
+    position: relative;
+    height: auto;
     width: 80%;
+    margin: 20px;
+}
+
+.catalogHead {
+    position: relative;
+}
+
+.breadcrumbs {
+    float: left;
+}
+
+.cart {
+    position: absolute;
+    right: 30px;
+}
+
+.pages {
+    position: absolute;
+    bottom: 5px;
 }
