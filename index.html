@@ -27,30 +27,32 @@
             <ul>
                 <li class="filter" id="modelMenu">Model</li>
                 <ul id="modelSub" class="submenu">
-                    <li><input type="checkbox" name="model" id="redmi" class="modelChoice"> <label for="redmi">Xiaomi Redmi Note</label></li>
-                    <li><input type="checkbox" name="model" id="redmi3" class="modelChoice"> <label for="redmi3">Xiaomi Redmi 3</label></li>
-                    <li><input type="checkbox" name="model" id="galaxys9" class="modelChoice"> <label for="galaxys9">Samsung Galaxy S9</label></li>
-                    <li><input type="checkbox" name="model" id="iphone11" class="modelChoice"> <label for="iphone11">Iphone 11</label></li>
-                    <li><input type="checkbox" name="model" id="iphone12" class="modelChoice"> <label for="iphone12">Iphone 12</label></li>
+                    <li><input type="checkbox" name="model" id="redmi" class="modelChoice filterOption"> <label for="redmi">Xiaomi Redmi Note</label></li>
+                    <li><input type="checkbox" name="model" id="redmi3" class="modelChoice filterOption"> <label for="redmi3">Xiaomi Redmi 3</label></li>
+                    <li><input type="checkbox" name="model" id="galaxys9" class="modelChoice filterOption"> <label for="galaxys9">Samsung Galaxy S9</label></li>
+                    <li><input type="checkbox" name="model" id="iphone11" class="modelChoice filterOption"> <label for="iphone11">Iphone 11</label></li>
+                    <li><input type="checkbox" name="model" id="iphone12" class="modelChoice filterOption"> <label for="iphone12">Iphone 12</label></li>
                 </ul>
                 <li class="filter" id="colorMenu">Color</li>
                 <ul id="colorSub" class="submenu">
-                    <li><input type="checkbox" name="color" id="white" class="colorChoice"> <label for="white">white</label></li>
-                    <li><input type="checkbox" name="color" id="black" class="colorChoice"> <label for="black">black</label></li>
-                    <li><input type="checkbox" name="color" id="trans" class="colorChoice"> <label for="trans">transparent</label></li>
-                    <li><input type="checkbox" name="color" id="red" class="colorChoice"> <label for="red">red</label></li>
-                    <li><input type="checkbox" name="color" id="blue" class="colorChoice"> <label for="blue">blue</label></li>
-                    <li><input type="checkbox" name="color" id="green" class="colorChoice"> <label for="green">green</label></li>
-                    <li><input type="checkbox" name="color" id="yellow" class="colorChoice"> <label for="yellow">brown</label></li>
+                    <li><input type="checkbox" name="color" id="white" class="colorChoice filterOption"> <label for="white">white</label></li>
+                    <li><input type="checkbox" name="color" id="black" class="colorChoice filterOption"> <label for="black">black</label></li>
+                    <li><input type="checkbox" name="color" id="trans" class="colorChoice filterOption"> <label for="trans">transparent</label></li>
+                    <li><input type="checkbox" name="color" id="red" class="colorChoice filterOption"> <label for="red">red</label></li>
+                    <li><input type="checkbox" name="color" id="blue" class="colorChoice filterOption"> <label for="blue">blue</label></li>
+                    <li><input type="checkbox" name="color" id="green" class="colorChoice filterOption"> <label for="green">green</label></li>
+                    <li><input type="checkbox" name="color" id="yellow" class="colorChoice filterOption"> <label for="yellow">brown</label></li>
                 </ul>
                 <li class="filter" id="designMenu">Design</li>
                 <ul id="designSub" class="submenu">
-                    <li><input type="checkbox" name="design" id="pics" class="designChoice"> <label for="pics">with pictures</label></li>
-                    <li><input type="checkbox" name="design" id="protect" class="designChoice"> <label for="protect">protection</label></li>
-                    <li><input type="checkbox" name="design" id="book" class="designChoice"> <label for="book">case-book</label></li>
-                    <li><input type="checkbox" name="design" id="pocket" class="designChoice"> <label for="pocket">case with pocket</label></li>
+                    <li><input type="checkbox" name="design" id="pics" class="designChoice filterOption"> <label for="pics">with pictures</label></li>
+                    <li><input type="checkbox" name="design" id="protect" class="designChoice filterOption"> <label for="protect">protection</label></li>
+                    <li><input type="checkbox" name="design" id="book" class="designChoice filterOption"> <label for="book">case-book</label></li>
+                    <li><input type="checkbox" name="design" id="pocket" class="designChoice filterOption"> <label for="pocket">case with pocket</label></li>
                 </ul>
             </ul>
+            <button id="filter">Apply Filters</button>
+            <button id="resetFilters">Reset Filteres</button>
         </div>
         <div class="catalog">
             <div class="catalogHead">
@@ -65,8 +67,7 @@
                 </div>
             </div>
 
-            <div class="products">
-                MY PRODUCTS
+            <div id="products">
             </div>
             <div class="pages">
                 Pages
