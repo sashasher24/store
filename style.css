@@ -1,17 +1,22 @@
 body {
     position: relative;
+    background: rgba(81, 105, 81, 0.938);
+    font-family: 'Work Sans', sans-serif;
 }
 
 .header {
     display: flex;
-    background: rgb(216, 127, 140);
+    /* background: rgb(255, 204, 212); */
     height: 100px;
     width: 100%;
     justify-content: space-between;
+    border-bottom: 1px solid rgb(15, 54, 15);
 }
 
-.logoName {
-    margin: auto 30px;
+#logoImage {
+    margin: -10px 10px;
+    height: 120px;
+    width: 300px;
 }
 
 ul {
@@ -20,6 +25,10 @@ ul {
 
 .contact {
     margin: auto 30px;
+}
+
+.contact:hover {
+    border-bottom: 4px solid rgb(15, 187, 72);
 }
 
 .header ul {
@@ -31,22 +40,47 @@ ul {
     padding: 10px;
 }
 
+.header ul li:hover {
+    border-bottom: 4px solid rgb(15, 187, 72);
+}
+
+.header ul li:last-child:hover {
+    border: none;
+    outline: 10px rgb(15, 187, 72);
+}
+
+#search {
+    border: none;
+    outline: none;
+    height: 30px;
+    border-bottom: 5px solid rgb(15, 54, 15);
+    border-radius: 5px;
+}
+
 .main {
     height: max-content;
     min-height: 100%;
     display: flex;
-    margin-bottom: -100px;
+    margin-bottom: -120px;
 }
 
 .sidebar {
     width: 20%;
-    height: 400px;
-    margin: 20px;
+    height: 100%;
+    /* margin: 20px; */
+    border-right: 1px solid rgb(15, 54, 15);
 }
 
 .filter {
     position: relative;
-    margin: 10px;
+    margin: 10px 10px;
+    width: 200px;
+    height: 10%;
+    padding: 3px;
+    text-align: center;
+    line-height: 35px;
+    border: 1px solid rgb(252, 185, 86);
+    border-radius: 10px;
 }
 
 .filter::after {
@@ -56,16 +90,70 @@ ul {
     width: 10px;
     position: absolute;
     right: 15px;
-    top: 5px;
+    top: 15px;
     background-size: cover;
+}
+
+#filter {
+    background-color: rgb(146, 182, 253);
+    outline: none;
+    border: 2px solid rgb(104, 104, 255);
+    border-radius: 7px;
+    box-shadow: 5px 2px rgb(23, 34, 49);
+    height: 50px;
+    width: 35%;
+    margin-left: 40px;
+}
+
+#resetFilters {
+    background-color: rgb(146, 182, 253);
+    outline: none;
+    border: 2px solid rgb(104, 104, 255);
+    border-radius: 7px;
+    box-shadow: 5px 2px rgb(23, 34, 49);
+    height: 50px;
+    width: 35%;
+    margin-left: 10px;
+}
+
+.filter:hover,
+#filter:hover,
+#resetFilters:hover {
+    cursor: pointer;
 }
 
 .submenu {
     display: none;
 }
 
+.breadcrumbs {
+    font-size: larger;
+}
+
+#sort {
+    font-size: larger;
+}
+
+#sort:hover {
+    cursor: pointer;
+}
+
+.addButton {
+    background-color: rgb(252, 185, 86);
+    border: 2px solid rgb(223, 134, 0);
+    border-radius: 5px;
+    height: 30px;
+    width: 150px;
+    outline: none;
+}
+
+.addButton:hover {
+    cursor: pointer;
+    outline: none;
+}
+
 .footer {
-    margin-top: 120px;
+    margin-top: 160px;
     height: 100px;
 }
 
@@ -78,9 +166,12 @@ ul {
 
 .product {
     height: 300px;
-    width: 32%;
+    width: 30%;
     float: left;
     text-align: center;
+    margin: 5px;
+    border: 1px solid rgb(6, 29, 6);
+    box-shadow: 2px 2px rgb(6, 29, 6);
     /* margin-top: 15px; */
 }
 
@@ -89,6 +180,7 @@ ul {
 }
 
 .productPicture {
+    margin-top: 15px;
     height: 150px;
     width: 120px;
 }
@@ -102,9 +194,19 @@ ul {
     float: left;
 }
 
+.breadcrumbs::after {
+    clear: both;
+}
+
 .cart {
     position: absolute;
     right: 30px;
+}
+
+#sort {
+    display: block;
+    position: absolute;
+    top: 35px;
 }
 
 .pages {

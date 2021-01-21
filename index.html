@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mystore</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header class="header">
-        <span class="logoName">Mobilochka</span>
+        <span class="logoName"><img id="logoImage" src="assets/images/logo.png" alt="logo"></span>
         <ul>
             <li>Home</li>
             <li>Catalog</li>
@@ -52,18 +54,18 @@
                 </ul>
             </ul>
             <button id="filter">Apply Filters</button>
-            <button id="resetFilters">Reset Filteres</button>
+            <button id="resetFilters">Reset Filters</button>
         </div>
         <div class="catalog">
             <div class="catalogHead">
                 <div class="breadcrumbs">
-                    home/catalog
+                    <a href="home.html">home</a>/catalog
                 </div>
                 <div class="cart">
                     your cart is empty :( Go buy something
                 </div>
-                <div class="sort">
-                    Sort by: (price/newest)
+                <div id="sort">
+                    Sort by price
                 </div>
             </div>
 

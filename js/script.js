@@ -180,7 +180,6 @@ function filterModels() {
             filteredModels = filteredModels.concat(productsArray.filter(product => product.compatibility == models[i].id));
     }
 
-    // console.log(filteredModels);
     return filteredModels;
 }
 
@@ -211,7 +210,10 @@ function filterDesign() {
 let filters = document.getElementsByClassName('filterOption');
 
 let resetButton = document.getElementById('resetFilters');
+
 resetButton.addEventListener('click', function() {
+    sort.innerHTML = 'Sort by price';
+
     for (let i = 0; i < filters.length; i++) {
         filters[i].checked = false;
     }
@@ -219,3 +221,44 @@ resetButton.addEventListener('click', function() {
     deleteProducts();
     showProducts(productsArray);
 })
+
+let sort = document.getElementById('sort');
+let sortedAscending = false;
+
+function sortAscending() {
+    sortedAscending = true;
+
+    let sortedArray = [];
+    sortedArray = sortedArray.concat(productsArray);
+    sortedArray = sortedArray.sort(function(a, b) {
+        return a.price - b.price;
+    });
+
+    sort.innerHTML = 'Sort by price (Sorted by Ascending)';
+
+    deleteProducts();
+    showProducts(sortedArray);
+}
+
+function sortDescending() {
+    sortedAscending = false;
+
+    let sortedArray = [];
+    sortedArray = sortedArray.concat(productsArray);
+    sortedArray = sortedArray.sort(function(a, b) {
+        return b.price - a.price;
+    });
+
+    sort.innerHTML = 'Sort by price (Sorted by Descending)';
+
+    deleteProducts();
+    showProducts(sortedArray);
+}
+
+sort.addEventListener('click', function() {
+    if (sortedAscending == false) {
+        sortAscending();
+    } else {
+        sortDescending();
+    }
+});
