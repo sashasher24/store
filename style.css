@@ -28,6 +28,10 @@ ul {
 }
 
 .contact:hover {
+    cursor: pointer;
+}
+
+.contact:hover {
     border-bottom: 4px solid rgb(15, 187, 72);
 }
 
@@ -42,6 +46,7 @@ ul {
 
 .header ul li:hover {
     border-bottom: 4px solid rgb(15, 187, 72);
+    cursor: pointer;
 }
 
 .header ul li:last-child:hover {
@@ -118,7 +123,9 @@ ul {
 
 .filter:hover,
 #filter:hover,
-#resetFilters:hover {
+#resetFilters:hover,
+.filterOption,
+.filterLabel {
     cursor: pointer;
 }
 
@@ -198,9 +205,31 @@ ul {
     clear: both;
 }
 
-.cart {
+#cart {
     position: absolute;
     right: 30px;
+    width: 400px;
+    height: 90px;
+}
+
+#cartImg {
+    height: 70px;
+    width: 80px;
+    position: absolute;
+    right: 25px;
+}
+
+#clearCart {
+    height: 30px;
+    width: 30px;
+    margin: -5px;
+    position: absolute;
+    right: 45px;
+    bottom: 0;
+}
+
+#cartItems {
+    float: left;
 }
 
 #sort {
@@ -209,7 +238,35 @@ ul {
     top: 35px;
 }
 
-.pages {
+#pages {
     position: absolute;
-    bottom: 5px;
+    bottom: -30px;
+    left: 50%;
+    margin: -20px;
+}
+
+#page1 {
+    color: rgb(252, 185, 86);
+}
+
+.prodPage {
+    padding-left: 10px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.prodPage:hover {
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.pageArrow {
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.pageArrow:hover {
+    font-size: 25px;
+    cursor: pointer;
 }

@@ -29,28 +29,28 @@
             <ul>
                 <li class="filter" id="modelMenu">Model</li>
                 <ul id="modelSub" class="submenu">
-                    <li><input type="checkbox" name="model" id="redmi" class="modelChoice filterOption"> <label for="redmi">Xiaomi Redmi Note</label></li>
-                    <li><input type="checkbox" name="model" id="redmi3" class="modelChoice filterOption"> <label for="redmi3">Xiaomi Redmi 3</label></li>
-                    <li><input type="checkbox" name="model" id="galaxys9" class="modelChoice filterOption"> <label for="galaxys9">Samsung Galaxy S9</label></li>
-                    <li><input type="checkbox" name="model" id="iphone11" class="modelChoice filterOption"> <label for="iphone11">Iphone 11</label></li>
-                    <li><input type="checkbox" name="model" id="iphone12" class="modelChoice filterOption"> <label for="iphone12">Iphone 12</label></li>
+                    <li><input type="checkbox" name="model" id="redmi" class="modelChoice filterOption"> <label class="filterLabel" for="redmi">Xiaomi Redmi Note</label></li>
+                    <li><input type="checkbox" name="model" id="redmi3" class="modelChoice filterOption"> <label class="filterLabel" for="redmi3">Xiaomi Redmi 3</label></li>
+                    <li><input type="checkbox" name="model" id="galaxys9" class="modelChoice filterOption"> <label class="filterLabel" for="galaxys9">Samsung Galaxy S9</label></li>
+                    <li><input type="checkbox" name="model" id="iphone11" class="modelChoice filterOption"> <label class="filterLabel" for="iphone11">Iphone 11</label></li>
+                    <li><input type="checkbox" name="model" id="iphone12" class="modelChoice filterOption"> <label class="filterLabel" for="iphone12">Iphone 12</label></li>
                 </ul>
                 <li class="filter" id="colorMenu">Color</li>
                 <ul id="colorSub" class="submenu">
-                    <li><input type="checkbox" name="color" id="white" class="colorChoice filterOption"> <label for="white">white</label></li>
-                    <li><input type="checkbox" name="color" id="black" class="colorChoice filterOption"> <label for="black">black</label></li>
-                    <li><input type="checkbox" name="color" id="trans" class="colorChoice filterOption"> <label for="trans">transparent</label></li>
-                    <li><input type="checkbox" name="color" id="red" class="colorChoice filterOption"> <label for="red">red</label></li>
-                    <li><input type="checkbox" name="color" id="blue" class="colorChoice filterOption"> <label for="blue">blue</label></li>
-                    <li><input type="checkbox" name="color" id="green" class="colorChoice filterOption"> <label for="green">green</label></li>
-                    <li><input type="checkbox" name="color" id="yellow" class="colorChoice filterOption"> <label for="yellow">brown</label></li>
+                    <li><input type="checkbox" name="color" id="white" class="colorChoice filterOption"> <label class="filterLabel" for="white">white</label></li>
+                    <li><input type="checkbox" name="color" id="black" class="colorChoice filterOption"> <label class="filterLabel" for="black">black</label></li>
+                    <li><input type="checkbox" name="color" id="trans" class="colorChoice filterOption"> <label class="filterLabel" for="trans">transparent</label></li>
+                    <li><input type="checkbox" name="color" id="red" class="colorChoice filterOption"> <label class="filterLabel" for="red">red</label></li>
+                    <li><input type="checkbox" name="color" id="blue" class="colorChoice filterOption"> <label class="filterLabel" for="blue">blue</label></li>
+                    <li><input type="checkbox" name="color" id="green" class="colorChoice filterOption"> <label class="filterLabel" for="green">green</label></li>
+                    <li><input type="checkbox" name="color" id="yellow" class="colorChoice filterOption"> <label class="filterLabel" for="yellow">brown</label></li>
                 </ul>
                 <li class="filter" id="designMenu">Design</li>
                 <ul id="designSub" class="submenu">
-                    <li><input type="checkbox" name="design" id="pics" class="designChoice filterOption"> <label for="pics">with pictures</label></li>
-                    <li><input type="checkbox" name="design" id="protect" class="designChoice filterOption"> <label for="protect">protection</label></li>
-                    <li><input type="checkbox" name="design" id="book" class="designChoice filterOption"> <label for="book">case-book</label></li>
-                    <li><input type="checkbox" name="design" id="pocket" class="designChoice filterOption"> <label for="pocket">case with pocket</label></li>
+                    <li><input type="checkbox" name="design" id="pics" class="designChoice filterOption"> <label class="filterLabel" for="pics">with pictures</label></li>
+                    <li><input type="checkbox" name="design" id="protect" class="designChoice filterOption"> <label class="filterLabel" for="protect">protection</label></li>
+                    <li><input type="checkbox" name="design" id="book" class="designChoice filterOption"> <label class="filterLabel" for="book">case-book</label></li>
+                    <li><input type="checkbox" name="design" id="pocket" class="designChoice filterOption"> <label class="filterLabel" for="pocket">case with pocket</label></li>
                 </ul>
             </ul>
             <button id="filter">Apply Filters</button>
@@ -61,8 +61,13 @@
                 <div class="breadcrumbs">
                     <a href="home.html">home</a>/catalog
                 </div>
-                <div class="cart">
-                    your cart is empty :( Go buy something
+                <div id="cart">
+                    <div id="cartItems">
+                        <!-- your cart is empty :( Go buy something -->
+                    </div>
+                    <img src="assets/images/cart.png" alt="cart image" id="cartImg">
+                    <br>
+                    <img src="assets/images/delete.png" alt="delete items" id="clearCart">
                 </div>
                 <div id="sort">
                     Sort by price
@@ -71,8 +76,8 @@
 
             <div id="products">
             </div>
-            <div class="pages">
-                Pages
+            <div id="pages">
+
             </div>
         </div>
     </main>
