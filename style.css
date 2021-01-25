@@ -230,12 +230,27 @@ ul {
 
 #cartItems {
     float: left;
+    visibility: hidden;
 }
+
+
+/* #cartImg:hover~#cartItems {
+    visibility: visible;
+} */
 
 #sort {
     display: block;
     position: absolute;
     top: 35px;
+}
+
+.radio {
+    font-size: smaller;
+}
+
+.radio:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 #pages {

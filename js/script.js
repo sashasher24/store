@@ -146,6 +146,15 @@ function displayCart() {
 }
 displayCart();
 
+let cartImage = document.getElementById('cartImages');
+let cartItems = document.getElementById('cartItems');
+
+cartImage.onmouseover = function() {
+    cartItems.style.visibility = 'visible';
+};
+cartImage.onmouseout = function() {
+    cartItems.style.visibility = 'hidden';
+};
 
 ProductPreview.prototype = {
     getProduct: function() {
@@ -246,6 +255,8 @@ function filterProducts() {
         if (document.getElementById('leftArrow') && document.getElementById('rightArrow'))
             arrowClicks();
     }
+
+    return filteredProducts;
 }
 
 function filterModels() {
@@ -299,9 +310,13 @@ function filterDesign() {
 
 let filters = document.getElementsByClassName('filterOption');
 let resetButton = document.getElementById('resetFilters');
+let sortRadio = document.getElementsByClassName('sortRadio');
 
 resetButton.addEventListener('click', function() {
-    sort.innerHTML = 'Sort by price';
+    Array.prototype.forEach.call(sortRadio, radio => {
+        radio.checked = false;
+    });
+
 
     for (let i = 0; i < filters.length; i++) {
         filters[i].checked = false;
@@ -323,58 +338,44 @@ resetButton.addEventListener('click', function() {
 let sort = document.getElementById('sort');
 let sortedAscending = false;
 
-function sortAscending() {
-    sortedAscending = true;
-
+function sortProds(way) {
     let sortedArray = [];
-    sortedArray = sortedArray.concat(productsArray);
-    sortedArray = sortedArray.sort(function(a, b) {
-        return a.price - b.price;
-    });
 
-    sort.innerHTML = 'Sort by price (Sorted by Ascending)';
-
-    deleteProducts();
-    showProducts(sortedArray);
-    displayProducts();
-    let pages = document.getElementById('pages');
-    pages.innerHTML = '';
-    displayPages();
-    pagesClicks();
-    if (document.getElementById('leftArrow') && document.getElementById('rightArrow'))
-        arrowClicks();
-}
-
-function sortDescending() {
-    sortedAscending = false;
-
-    let sortedArray = [];
-    sortedArray = sortedArray.concat(productsArray);
-    sortedArray = sortedArray.sort(function(a, b) {
-        return b.price - a.price;
-    });
-
-    sort.innerHTML = 'Sort by price (Sorted by Descending)';
-
-    deleteProducts();
-    showProducts(sortedArray);
-    displayProducts();
-    let pages = document.getElementById('pages');
-    pages.innerHTML = '';
-    displayPages();
-    pagesClicks();
-    if (document.getElementById('leftArrow') && document.getElementById('rightArrow'))
-        arrowClicks();
-}
-
-sort.addEventListener('click', function() {
-    if (sortedAscending == false) {
-        sortAscending();
+    if(filterProducts().length > 0) {
+        sortedArray = sortedArray.concat(filterProducts());
     } else {
-        sortDescending();
+        sortedArray = sortedArray.concat(productsArray);
     }
-});
 
+    if(way == 'ascending') {
+        sortedAscending = true;
+        sortedArray = sortedArray.sort(function(a, b) {
+            return a.price - b.price;
+        });        
+    } else if(way =='descending') {
+        sortedArray = sortedArray.sort(function(a, b) {
+            return b.price - a.price;
+        });
+    }
+
+    deleteProducts();
+    showProducts(sortedArray);
+    displayProducts();
+    let pages = document.getElementById('pages');
+    pages.innerHTML = '';
+    displayPages();
+    pagesClicks();
+    if (document.getElementById('leftArrow') && document.getElementById('rightArrow'))
+        arrowClicks();
+}
+
+Array.prototype.forEach.call(sortRadio, radio => {
+    radio.addEventListener('click', function() {
+        if(radio.id == 'ascending') {
+            sortProds('ascending');
+        } else sortProds('descending');
+    })
+});
 
 
 //pages

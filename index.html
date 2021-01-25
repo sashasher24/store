@@ -65,12 +65,16 @@
                     <div id="cartItems">
                         <!-- your cart is empty :( Go buy something -->
                     </div>
-                    <img src="assets/images/cart.png" alt="cart image" id="cartImg">
-                    <br>
-                    <img src="assets/images/delete.png" alt="delete items" id="clearCart">
+                    <div id="cartImages">
+                        <img src="assets/images/cart.png" alt="cart image" id="cartImg">
+                        <br>
+                        <img src="assets/images/delete.png" alt="delete items" id="clearCart">
+                    </div>
                 </div>
                 <div id="sort">
                     Sort by price
+                    <input type="radio" name="sort" id="ascending" class="sortRadio radio"> <label class="radio" for="ascending">From Low to High</label>
+                    <input type="radio" name="sort" id="descending" class="sortRadio radio"> <label class="radio" for="descending">From High to Low</label>
                 </div>
             </div>
 
