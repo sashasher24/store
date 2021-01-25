@@ -63,7 +63,7 @@ let productsArray = [{ id: 'redmi1', photo: 'RedmiNote1.1.jpg', title: 'Xiaomi R
 
 let localI;
 if (!localStorage.length) localI = 0;
-else localI = localStorage.length / 2;
+else localI = localStorage.length / 3 - 1;
 
 //display products
 function ProductPreview(product) {
@@ -92,10 +92,11 @@ function ProductPreview(product) {
             if (localStorage.length < 1) {
                 localStorage.setItem(`count${localI}`, 1);
                 localStorage.setItem(`product${localI}`, product.title);
+                localStorage.setItem(`price${localI}`, product.price);
                 localI++;
             } else {
                 let alreadyPresent;
-                for (let i = 0; i < localStorage.length / 2; i++) {
+                for (let i = 0; i < localStorage.length / 3 - 1; i++) {
                     if (localStorage.getItem(`product${i}`) == product.title) {
                         localStorage.setItem(`count${i}`, Number(localStorage.getItem(`count${i}`)) + 1);
                         alreadyPresent = true;
@@ -106,6 +107,7 @@ function ProductPreview(product) {
                 if (!alreadyPresent) {
                     localStorage.setItem(`count${localI}`, 1);
                     localStorage.setItem(`product${localI}`, product.title);
+                    localStorage.setItem(`price${localI}`, product.price);
                     localI++;
                 }
             }
@@ -131,17 +133,27 @@ clearCart.addEventListener('click', function() {
     displayCart();
 });
 
+
+
 function displayCart() {
     let carItems = document.getElementById('cartItems');
+    let totalCount = document.getElementById('totalCount');
     // setLocalStorage();
+    let totalAmount = 0;
+    let totalToPay = 0;
 
     if (localStorage.length) {
         carItems.textContent = '';
-        for (let i = 0; i < localStorage.length / 2; i++) {
+        for (let i = 0; i < localStorage.length / 3 - 1; i++) {
             carItems.innerHTML += `${localStorage.getItem(`count${i}`)} x ${localStorage.getItem(`product${i}`)}<br>`;    
+            totalAmount += Number(localStorage.getItem(`count${i}`));
+            totalToPay += Number(localStorage.getItem(`price${i}`)) * Number(localStorage.getItem(`count${i}`));
         }
+        totalCount.textContent = totalAmount;
+        carItems.innerHTML += `<div class="sum"> To pay: ${totalToPay}</div>`;    
     } else {
         carItems.innerHTML = `your cart is empty :(<br>Go buy something`;
+        totalCount.textContent = '';
     }
 }
 displayCart();
