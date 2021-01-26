@@ -6,11 +6,11 @@ body {
 
 .header {
     display: flex;
-    /* background: rgb(255, 204, 212); */
     height: 100px;
     width: 100%;
     justify-content: space-between;
     border-bottom: 1px solid rgb(15, 54, 15);
+    font-family: 'Abel', sans-serif;
 }
 
 #logoImage {
@@ -27,11 +27,13 @@ ul {
     margin: auto 30px;
 }
 
-.contact:hover {
-    cursor: pointer;
+#mobile {
+    text-decoration: none;
+    color: black;
 }
 
 .contact:hover {
+    cursor: pointer;
     border-bottom: 4px solid rgb(15, 187, 72);
 }
 
@@ -62,14 +64,9 @@ ul {
     border-radius: 5px;
 }
 
-#mobile {
-    text-decoration: none;
-    color: black;
-}
-
 .main {
     height: max-content;
-    min-height: 100%;
+    min-height: calc(100% - 20px);
     display: flex;
     margin-bottom: -120px;
 }
@@ -77,14 +74,13 @@ ul {
 .sidebar {
     width: 20%;
     height: 100%;
-    /* margin: 20px; */
     border-right: 1px solid rgb(15, 54, 15);
 }
 
 .filter {
     position: relative;
     margin: 10px 10px;
-    width: 200px;
+    width: calc(100% - 40px);
     height: 10%;
     padding: 3px;
     text-align: center;
@@ -165,16 +161,19 @@ ul {
 }
 
 .footer {
-    margin-top: 200px;
-    height: 100px;
+    margin-top: 10px;
+    height: 70px;
     text-align: center;
     border-top: 1px solid rgb(15, 54, 15);
     padding-top: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .catalog {
     position: relative;
-    height: auto;
+    height: max-content;
     width: 80%;
     margin: 20px;
 }
@@ -187,7 +186,6 @@ ul {
     margin: 5px;
     border: 1px solid rgb(6, 29, 6);
     box-shadow: 2px 2px rgb(6, 29, 6);
-    /* margin-top: 15px; */
 }
 
 .product::after {
@@ -236,16 +234,20 @@ ul {
     bottom: 0;
 }
 
+#clearCart:hover {
+    cursor: pointer;
+}
+
 #cartItems {
     float: left;
     visibility: hidden;
     position: relative;
-    height: 100%;
-}
-
-.sum {
-    position: absolute;
-    bottom: 2px;
+    height: max-content;
+    margin-bottom: 20px;
+    background: rgba(252, 185, 86, 0.75);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(223, 134, 0);
 }
 
 #totalCount {
@@ -256,6 +258,12 @@ ul {
     top: -25px;
     font-weight: bolder;
     color: rgb(223, 134, 0);
+}
+
+.sum {
+    font-weight: bold;
+    text-decoration: overline;
+    margin-top: 5px;
 }
 
 #sort {
@@ -304,4 +312,358 @@ ul {
 .pageArrow:hover {
     font-size: 25px;
     cursor: pointer;
+}
+
+@media (min-height: 1300px) {
+    #mobile {
+        margin-right: 25px;
+    }
+    .header {
+        font-size: larger;
+    }
+    #cart {
+        right: 20px;
+    }
+    #pages {
+        bottom: -60px;
+        margin: -20px;
+    }
+    .product {
+        height: 400px;
+        font-size: larger;
+    }
+    .productPicture {
+        margin-top: 15px;
+        height: 220px;
+        width: 200px;
+    }
+    .addButton {
+        border-radius: 5px;
+        height: 47px;
+        width: 190px;
+        outline: none;
+    }
+    .catalogHead {
+        height: 150px;
+        font-size: larger;
+    }
+    #sort {
+        margin-top: 30px;
+    }
+    #cart {
+        width: 600px;
+        height: 120px;
+    }
+    #cartImg {
+        height: 100px;
+        width: 120px;
+        margin-top: 10px;
+    }
+    #clearCart {
+        height: 50px;
+        width: 50px;
+        margin: -25px;
+        right: 65px;
+    }
+    #cartItems {
+        font-size: larger;
+    }
+    .filter {
+        margin: 20px 20px;
+        padding: 5px;
+        font-size: larger;
+    }
+    .filter::after {
+        height: 20px;
+        width: 20px;
+    }
+    #filter {
+        height: 80px;
+        width: 35%;
+        margin-left: 40px;
+        font-size: larger;
+    }
+    #resetFilters {
+        height: 80px;
+        width: 35%;
+        font-size: larger;
+    }
+    .footer {
+        font-size: larger;
+        display: block;
+    }
+}
+
+@media (max-width: 1385px) {
+    .product {
+        height: 250px;
+        font-size: smaller;
+        padding: 0;
+    }
+    .productPicture {
+        margin-top: 5px;
+        height: 110px;
+        width: 90px;
+    }
+    .addButton {
+        height: 30px;
+        width: 90px;
+    }
+    .catalogHead {
+        height: 100px;
+    }
+    #sort {
+        margin-top: 15px;
+    }
+    #cart {
+        width: 300px;
+        height: 70px;
+    }
+    #cartImg {
+        height: 60px;
+        width: 60px;
+        margin-top: 5px;
+    }
+    #clearCart {
+        height: 25px;
+        width: 25px;
+        margin: -20px;
+        right: 55px;
+    }
+    #totalCount {
+        right: 35px;
+    }
+    .filter {
+        margin: 10px 10px;
+        padding: 5px;
+    }
+    .filter::after {
+        height: 10px;
+        width: 10px;
+    }
+    #filter {
+        height: 60px;
+        width: 35%;
+        margin-left: 30px;
+    }
+    #resetFilters {
+        height: 60px;
+        width: 35%;
+    }
+}
+
+@media (max-width: 800px) {
+    .header {
+        height: 80px;
+    }
+    #logoImage {
+        margin-top: 0px;
+        height: 70px;
+        width: 200px;
+    }
+    #mobile {
+        font-size: 15px;
+    }
+    .header ul {
+        font-size: 15px;
+    }
+    #search {
+        margin-left: 35px;
+    }
+    #pages {
+        bottom: -10px;
+        margin: -40px;
+    }
+    .product {
+        height: 250px;
+        font-size: 12px;
+    }
+    .productPicture {
+        margin-top: 5px;
+        height: 110px;
+        width: 90px;
+    }
+    .addButton {
+        height: 30px;
+        width: 90px;
+    }
+    .catalogHead {
+        height: 100px;
+        font-size: 15px;
+    }
+    #sort {
+        margin-top: 1px;
+        width: 60%;
+    }
+    #cart {
+        width: 30%;
+        height: 70px;
+        right: 0;
+    }
+    #cartImg {
+        height: 50px;
+        width: 50px;
+        margin-top: 10px;
+    }
+    #clearCart {
+        height: 25px;
+        width: 25px;
+        margin: -20px;
+        right: 55px;
+    }
+    #cartItems {
+        font-size: smaller;
+        width: 150px;
+        top: 85px;
+        right: 10px;
+    }
+    #totalCount {
+        right: 35px;
+        margin-bottom: -2px;
+    }
+    .filter {
+        margin: 5px 5px;
+        font-size: smaller;
+        width: 90%;
+        margin-left: -25px;
+    }
+    .filter::after {
+        height: 10px;
+        width: 10px;
+        right: 0;
+    }
+    #filter {
+        height: 50px;
+        width: 80%;
+        margin-left: 0px;
+    }
+    #resetFilters {
+        height: 50px;
+        width: 80%;
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+    .filterOption {
+        margin-left: -60px;
+    }
+    .filterLabel {
+        font-size: 12px;
+    }
+    .footer {
+        display: none;
+    }
+    [id*='page'] {
+        font-size: 15px;
+    }
+    [id*='page']:hover {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        height: 70px;
+    }
+    #logoImage {
+        margin-top: 0px;
+        height: 70px;
+        width: 100px;
+    }
+    #mobile {
+        font-size: 15px;
+    }
+    .header ul {
+        font-size: 12px;
+    }
+    #search {
+        margin-left: 10px;
+        height: 20px;
+    }
+    #pages {
+        bottom: -10px;
+        margin: -40px;
+        left: 30%;
+    }
+    .product {
+        height: 200px;
+        font-size: 10px;
+        width: 45%;
+    }
+    .productPicture {
+        margin-top: 5px;
+        height: 90px;
+        width: 70px;
+    }
+    .addButton {
+        height: 20px;
+        width: 90px;
+    }
+    .catalogHead {
+        height: 100px;
+        font-size: 12px;
+    }
+    #sort {
+        margin-top: 1px;
+        width: 70%;
+    }
+    #cart {
+        width: 30%;
+        height: 70px;
+        right: 0;
+    }
+    #cartImg {
+        height: 40px;
+        width: 40px;
+        margin-top: 10px;
+    }
+    #clearCart {
+        height: 20px;
+        width: 20px;
+        margin: -10px;
+        right: 40px;
+    }
+    #cartItems {
+        font-size: smaller;
+        width: 150px;
+        top: 85px
+    }
+    #totalCount {
+        right: 25px;
+        margin-bottom: -5px;
+    }
+    .filter {
+        margin: 5px 5px;
+        font-size: smaller;
+        width: 90%;
+        margin-left: -25px;
+    }
+    .filter::after {
+        content: '';
+        background-image: none;
+    }
+    #filter {
+        height: 30px;
+        width: 80%;
+        margin-left: 0px;
+        font-size: 10px;
+    }
+    #resetFilters {
+        height: 30px;
+        width: 80%;
+        margin-left: 0px;
+        margin-top: 5px;
+        font-size: 10px;
+    }
+    .filterOption {
+        margin-left: -60px;
+    }
+    .filterLabel {
+        font-size: 10px;
+    }
+    [id*='page'] {
+        font-size: 12px;
+    }
+    [id*='page']:hover {
+        font-size: 20px;
+    }
 }

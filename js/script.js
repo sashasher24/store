@@ -63,7 +63,7 @@ let productsArray = [{ id: 'redmi1', photo: 'RedmiNote1.1.jpg', title: 'Xiaomi R
 
 let localI;
 if (!localStorage.length) localI = 0;
-else localI = localStorage.length / 3 - 1;
+else localI = Math.floor(localStorage.length / 2);
 
 //display products
 function ProductPreview(product) {
@@ -74,17 +74,21 @@ function ProductPreview(product) {
     this.productPicture = document.createElement('img');
     this.productPicture.setAttribute('src', `assets/images/cases/${product.photo}`);
     this.productPicture.setAttribute('class', 'productPicture');
+    this.productPicture.setAttribute('itemprop', "image");
     this.productName = document.createElement('h3');
     this.productName.textContent = product.title;
     this.productName.setAttribute('class', 'productName');
+    this.productName.setAttribute('itemprop', "name");
     this.productPrice = document.createElement('p');
     this.productPrice.textContent = `${product.price} uah`;
     this.productPrice.setAttribute('class', 'productPrice');
+    this.productPrice.setAttribute('itemprop', 'price');
 
     if (product.availability == 'available') {
         this.productStock = document.createElement('button');
         this.productStock.textContent = 'Add to Cart';
         this.productStock.setAttribute('class', 'addButton');
+        this.productStock.setAttribute('itemprop', 'availability');
         this.productStock.addEventListener('click', function() {
 
             console.log(`storage length is ${localStorage.length}`);
@@ -92,14 +96,20 @@ function ProductPreview(product) {
             if (localStorage.length < 1) {
                 localStorage.setItem(`count${localI}`, 1);
                 localStorage.setItem(`product${localI}`, product.title);
-                localStorage.setItem(`price${localI}`, product.price);
+                localStorage.setItem(`totalToPay`, product.price);
                 localI++;
             } else {
                 let alreadyPresent;
-                for (let i = 0; i < localStorage.length / 3 - 1; i++) {
+                for (let i = 0; i < Math.floor(localStorage.length / 2); i++) {
                     if (localStorage.getItem(`product${i}`) == product.title) {
-                        localStorage.setItem(`count${i}`, Number(localStorage.getItem(`count${i}`)) + 1);
-                        alreadyPresent = true;
+                        if (localStorage.getItem(`count${i}`) >= 5) {
+                            alert(`You cannot buy more that 5 pieces of one product :(`);
+                            alreadyPresent = true;
+                        } else {
+                            localStorage.setItem(`count${i}`, Number(localStorage.getItem(`count${i}`)) + 1);
+                            localStorage.setItem(`totalToPay`, Number(localStorage.getItem(`totalToPay`)) + product.price);
+                            alreadyPresent = true;
+                        }
                         break;
                     } else alreadyPresent = false;
                 }
@@ -107,7 +117,7 @@ function ProductPreview(product) {
                 if (!alreadyPresent) {
                     localStorage.setItem(`count${localI}`, 1);
                     localStorage.setItem(`product${localI}`, product.title);
-                    localStorage.setItem(`price${localI}`, product.price);
+                    localStorage.setItem(`totalToPay`, Number(localStorage.getItem(`totalToPay`)) + product.price);
                     localI++;
                 }
             }
@@ -117,6 +127,7 @@ function ProductPreview(product) {
         this.productStock = document.createElement('p');
         this.productStock.textContent = 'Not In Stock';
         this.productStock.setAttribute('class', 'notinstock');
+        this.productStock.setAttribute('itemprop', 'availability');
     }
 
     this.element.append(this.productPicture);
@@ -138,19 +149,16 @@ clearCart.addEventListener('click', function() {
 function displayCart() {
     let carItems = document.getElementById('cartItems');
     let totalCount = document.getElementById('totalCount');
-    // setLocalStorage();
     let totalAmount = 0;
-    let totalToPay = 0;
 
     if (localStorage.length) {
         carItems.textContent = '';
-        for (let i = 0; i < localStorage.length / 3 - 1; i++) {
+        for (let i = 0; i < Math.floor(localStorage.length / 2); i++) {
             carItems.innerHTML += `${localStorage.getItem(`count${i}`)} x ${localStorage.getItem(`product${i}`)}<br>`;    
             totalAmount += Number(localStorage.getItem(`count${i}`));
-            totalToPay += Number(localStorage.getItem(`price${i}`)) * Number(localStorage.getItem(`count${i}`));
         }
         totalCount.textContent = totalAmount;
-        carItems.innerHTML += `<div class="sum"> To pay: ${totalToPay}</div>`;    
+        carItems.innerHTML += `<div class="sum"> To pay: ${localStorage.getItem(`totalToPay`)} uah</div>`;    
     } else {
         carItems.innerHTML = `your cart is empty :(<br>Go buy something`;
         totalCount.textContent = '';
@@ -255,7 +263,7 @@ function filterProducts() {
         deleteProducts();
         let pages = document.getElementById('pages');
         pages.innerHTML = '';
-        document.querySelector('#products').innerHTML = 'Sorry, there are no products tat match your filters at the moment';
+        document.querySelector('#products').innerHTML = 'Sorry, there are no products that match your filters at the moment';
     } else {
         deleteProducts();
         showProducts(filteredProducts);
